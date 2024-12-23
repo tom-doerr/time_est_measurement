@@ -49,7 +49,6 @@ def analyze_data() -> None:
         print(f"Average delta: {average_delta:+.2f} seconds")
         print(f"Number of data points: {len(deltas)}")
         print_boxplot(deltas)
-        plot_histogram(deltas)
 
     except FileNotFoundError:
         print("No log file found.")
@@ -80,22 +79,6 @@ def print_boxplot(deltas: list[float]) -> None:
     print(f"  Q3 (75%): {q3:+.2f}")
     print(f"  Upper fence: {upper_fence:+.2f}")
 
-def plot_histogram(deltas: list[float]) -> None:
-    """Plots a histogram of the deltas using plot-cli."""
-    if not deltas:
-        print("No data to create a histogram.")
-        return
-
-    # Save deltas to a temporary file
-    with open("deltas.txt", "w") as f:
-        for delta in deltas:
-            f.write(f"{delta}\n")
-
-    try:
-        # Call plot-cli to generate the histogram
-        subprocess.run(["plot-cli", "histogram", "--data", "deltas.txt", "--title", "Histogram of Deltas"], check=True)
-    except subprocess.CalledProcessError as e:
-        print(f"Error generating histogram: {e}")
 
 
 if __name__ == "__main__":

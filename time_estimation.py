@@ -3,6 +3,7 @@ import time
 import argparse
 import numpy as np
 import plot_cli
+import subprocess
 
 
 def measure_actual_time(interval: float) -> float:
@@ -42,7 +43,7 @@ def analyze_data() -> None:
         print(f"Average delta: {average_delta:+.2f} seconds")
         print(f"Number of data points: {len(deltas)}")
         print_boxplot(deltas)
-        plot_boxplot(deltas)
+        plot_histogram(deltas)
 
     except FileNotFoundError:
         print("No log file found.")
@@ -70,13 +71,19 @@ def print_boxplot(deltas: list[float]) -> None:
     print(f"  Q3 (75%): {q3:+.2f}")
     print(f"  Upper fence: {upper_fence:+.2f}")
 
-def plot_boxplot(deltas: list[float]) -> None:
-    """Plots a boxplot of the deltas using plot-cli."""
+def plot_histogram(deltas: list[float]) -> None:
+    """Plots a histogram of the deltas using plot-cli."""
     if not deltas:
-        print("No data to create a boxplot.")
+        print("No data to create a histogram.")
         return
 
-    plot_cli.boxplot(deltas, title="Boxplot of Deltas")
+    # Save deltas to a temporary file
+    with open("deltas.txt", "w") as f:
+        for delta in deltas:
+            f.write(f"{delta}\n")
+
+    # Call plot-cli to generate the histogram
+    subprocess.run(["plot-cli", "histogram", "--data", "deltas.txt", "--title", "Histogram of Deltas"])
 
 
 if __name__ == "__main__":

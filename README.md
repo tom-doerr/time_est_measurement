@@ -1,18 +1,18 @@
 <div align="center">
 
-# ⏱️ Time Perception Analyzer
+# ⏱️ Time Estimation Measurement
 
 [![Python](https://img.shields.io/badge/Python-3.6+-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![Code Style](https://img.shields.io/badge/Code_Style-PEP8-purple?style=for-the-badge)](https://www.python.org/dev/peps/pep-0008/)
 
-A CLI tool for measuring subjective time perception as an indicator of brain state and stimulation levels.
+A CLI tool for measuring time estimation accuracy as an indicator of brain state and stimulation levels.
 
 </div>
 
 ## 📋 Overview
 
-Time Perception Analyzer is a research tool that measures how accurately you perceive time intervals. Since time perception varies with brain state - feeling faster when stimulated and slower when less aroused - these measurements can provide insights into cognitive states and arousal levels.
+Time Estimation Measurement is a research tool that measures how accurately you estimate time intervals. Since time estimation varies with brain state - feeling faster when stimulated and slower when less aroused - these measurements can provide insights into cognitive states and arousal levels.
 
 ## ✨ Features
 
@@ -33,8 +33,8 @@ Time Perception Analyzer is a research tool that measures how accurately you per
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/time-estimation-trainer.git
-cd time-estimation-trainer
+git clone https://github.com/yourusername/time-est-measurement.git
+cd time-est-measurement
 ```
 
 2. Install dependencies:

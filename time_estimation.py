@@ -20,8 +20,8 @@ def main():
     parser.add_argument("--interval", type=float, default=10.0, help="Time interval to wait for, in seconds.")
     args = parser.parse_args()
 
-    estimate = float(input("Enter your time estimate in seconds: "))
     actual_time = measure_actual_time(args.interval)
+    estimate = float(input("Enter your time estimate in seconds: "))
     log_data(estimate, actual_time)
     print("Time logged.")
 

@@ -23,7 +23,7 @@ def main():
     actual_time = measure_actual_time(args.interval)
     delta = actual_time - args.interval
     log_data(delta, actual_time)
-    print(f"Delta for this run: {delta:.2f} seconds")
+    print(f"Delta for this run: {delta:+.2f} seconds")
     analyze_data()
 def analyze_data() -> None:
     """Analyzes the data from time_log.txt."""
@@ -37,11 +37,11 @@ def analyze_data() -> None:
 
         deltas = [float(line.split(",")[0].split(": ")[1]) for line in lines]
         average_delta = sum(deltas) / len(deltas)
-        print(f"Average delta: {average_delta:.2f} seconds")
+        print(f"Average delta: {average_delta:+.2f} seconds")
         min_delta = min(deltas)
         max_delta = max(deltas)
-        print(f"Minimum delta: {min_delta:.2f} seconds")
-        print(f"Maximum delta: {max_delta:.2f} seconds")
+        print(f"Minimum delta: {min_delta:+.2f} seconds")
+        print(f"Maximum delta: {max_delta:+.2f} seconds")
         print(f"Number of data points: {len(deltas)}")
 
     except FileNotFoundError:

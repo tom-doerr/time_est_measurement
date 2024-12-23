@@ -33,7 +33,7 @@ Time Estimation Measurement is a research tool that measures how accurately you 
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/time-est-measurement.git
+git clone https://github.com/tom-doerr/time-est-measurement.git
 cd time-est-measurement
 ```
 

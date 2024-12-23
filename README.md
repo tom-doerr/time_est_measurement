@@ -12,7 +12,7 @@ A CLI tool for measuring time estimation accuracy as an indicator of brain state
 
 ## 📋 Overview
 
-Time Estimation Measurement is a research tool that measures how accurately you estimate time intervals. Since time estimation varies with brain state - feeling faster when stimulated and slower when less aroused - these measurements can provide insights into cognitive states and arousal levels.
+Time Estimation Measurement is a research tool that measures how accurately you estimate time intervals. Since time estimation varies with brain state - feeling faster during high mental activity and slower during low activity - these measurements can provide insights into cognitive states and attention levels.
 
 ## ✨ Features
 
@@ -20,7 +20,7 @@ Time Estimation Measurement is a research tool that measures how accurately you 
 - 📊 Statistical analysis of time perception accuracy
 - 📈 Visual representation of perception variations
 - 📝 Persistent data logging for trend analysis
-- 🔬 Track brain state indicators over time
+- 🔬 Track cognitive state indicators over time
 
 ## 🚀 Getting Started
 

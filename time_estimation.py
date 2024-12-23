@@ -17,7 +17,7 @@ def log_data(delta: float, actual_time: float) -> None:
 
 def main():
     parser = argparse.ArgumentParser(description="Time estimation script.")
-    parser.add_argument("--interval", type=float, default=10.0, help="Time interval to wait for, in seconds.")
+    parser.add_argument("--interval", type=float, default=5.0, help="Time interval to wait for, in seconds.")
     args = parser.parse_args()
 
     actual_time = measure_actual_time(args.interval)

@@ -70,27 +70,6 @@ def print_boxplot(deltas: list[float]) -> None:
     print(f"  Q3 (75%): {q3:+.2f}")
     print(f"  Upper fence: {upper_fence:+.2f}")
 
-def main():
-    # Ensure plot-cli is installed
-    try:
-        import plot_cli
-    except ImportError:
-        print("plot-cli is not installed. Please install it using:")
-        print("pip install plot-cli")
-        return
-
-    parser = argparse.ArgumentParser(description="Time estimation script.")
-    parser.add_argument("--interval", type=float, default=5.0, help="Time interval to wait for, in seconds.")
-    args = parser.parse_args()
-
-    actual_time = measure_actual_time(args.interval)
-    delta = actual_time - args.interval
-    log_data(delta, actual_time)
-    print(f"Delta for this run: {delta:+.2f} seconds")
-    analyze_data()
-
-if __name__ == "__main__":
-    main()
 def plot_boxplot(deltas: list[float]) -> None:
     """Plots a boxplot of the deltas using plot-cli."""
     if not deltas:
@@ -98,3 +77,7 @@ def plot_boxplot(deltas: list[float]) -> None:
         return
 
     plot_cli.boxplot(deltas, title="Boxplot of Deltas")
+
+
+if __name__ == "__main__":
+    main()

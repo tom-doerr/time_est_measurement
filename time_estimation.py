@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import time
 import argparse
+import numpy as np
 
 
 def measure_actual_time(interval: float) -> float:
@@ -38,17 +39,34 @@ def analyze_data() -> None:
         deltas = [float(line.split(",")[0].split(": ")[1]) for line in lines]
         average_delta = sum(deltas) / len(deltas)
         print(f"Average delta: {average_delta:+.2f} seconds")
-        min_delta = min(deltas)
-        max_delta = max(deltas)
-        print(f"Minimum delta: {min_delta:+.2f} seconds")
-        print(f"Maximum delta: {max_delta:+.2f} seconds")
         print(f"Number of data points: {len(deltas)}")
+        print_boxplot(deltas)
 
     except FileNotFoundError:
         print("No log file found.")
     except Exception as e:
         print(f"Error during analysis: {e}")
 
+def print_boxplot(deltas: list[float]) -> None:
+    """Prints a boxplot of the deltas."""
+    if not deltas:
+        print("No data to create a boxplot.")
+        return
+
+    # Calculate boxplot values
+    q1 = np.percentile(deltas, 25)
+    q2 = np.percentile(deltas, 50)
+    q3 = np.percentile(deltas, 75)
+    iqr = q3 - q1
+    lower_fence = q1 - 1.5 * iqr
+    upper_fence = q3 + 1.5 * iqr
+
+    print(f"Boxplot of deltas:")
+    print(f"  Lower fence: {lower_fence:+.2f}")
+    print(f"  Q1 (25%): {q1:+.2f}")
+    print(f"  Q2 (50%): {q2:+.2f}")
+    print(f"  Q3 (75%): {q3:+.2f}")
+    print(f"  Upper fence: {upper_fence:+.2f}")
 
 if __name__ == "__main__":
     main()

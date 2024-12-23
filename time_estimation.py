@@ -38,7 +38,13 @@ def analyze_data() -> None:
             print("No data to analyze.")
             return
 
-        deltas = [float(line.split(",")[0].split(": ")[1]) for line in lines]
+        deltas = []
+        for line in lines:
+            try:
+                delta = float(line.split(",")[0].split(": ")[1])
+                deltas.append(delta)
+            except (IndexError, ValueError) as e:
+                print(f"Error parsing log line: {e}")
         average_delta = sum(deltas) / len(deltas)
         print(f"Average delta: {average_delta:+.2f} seconds")
         print(f"Number of data points: {len(deltas)}")
@@ -49,6 +55,9 @@ def analyze_data() -> None:
         print("No log file found.")
     except Exception as e:
         print(f"Error during analysis: {e}")
+    finally:
+        if 'f' in locals() and not f.closed:
+            f.close()
 
 def print_boxplot(deltas: list[float]) -> None:
     """Prints a boxplot of the deltas."""
@@ -82,8 +91,11 @@ def plot_histogram(deltas: list[float]) -> None:
         for delta in deltas:
             f.write(f"{delta}\n")
 
-    # Call plot-cli to generate the histogram
-    subprocess.run(["plot-cli", "histogram", "--data", "deltas.txt", "--title", "Histogram of Deltas"])
+    try:
+        # Call plot-cli to generate the histogram
+        subprocess.run(["plot-cli", "histogram", "--data", "deltas.txt", "--title", "Histogram of Deltas"], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error generating histogram: {e}")
 
 
 if __name__ == "__main__":

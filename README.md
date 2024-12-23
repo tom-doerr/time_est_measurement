@@ -1,26 +1,26 @@
 <div align="center">
 
-# ⏱️ Time Estimation Trainer
+# ⏱️ Time Perception Analyzer
 
 [![Python](https://img.shields.io/badge/Python-3.6+-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![Code Style](https://img.shields.io/badge/Code_Style-PEP8-purple?style=for-the-badge)](https://www.python.org/dev/peps/pep-0008/)
 
-A simple CLI tool to help improve your time estimation skills through practice and feedback.
+A CLI tool for measuring subjective time perception as an indicator of brain state and stimulation levels.
 
 </div>
 
 ## 📋 Overview
 
-Time Estimation Trainer is a command-line tool that helps you practice and improve your ability to estimate time intervals. It provides immediate feedback on your accuracy and maintains a log of your performance over time, complete with statistical analysis.
+Time Perception Analyzer is a research tool that measures how accurately you perceive time intervals. Since time perception varies with brain state - feeling faster when stimulated and slower when less aroused - these measurements can provide insights into cognitive states and arousal levels.
 
 ## ✨ Features
 
-- 🎯 Practice estimating customizable time intervals
-- 📊 Statistical analysis of your performance
-- 📈 Visual boxplot representation of your results
-- 📝 Persistent logging of all attempts
-- 🔄 Track your progress over time
+- 🧠 Measure subjective time perception
+- 📊 Statistical analysis of time perception accuracy
+- 📈 Visual representation of perception variations
+- 📝 Persistent data logging for trend analysis
+- 🔬 Track brain state indicators over time
 
 ## 🚀 Getting Started
 
